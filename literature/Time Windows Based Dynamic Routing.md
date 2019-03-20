@@ -1,5 +1,3 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
 # a shortest path problem with time window
 
 ## 定义与假设
@@ -15,4 +13,4 @@
 * 任务：w<sub>i</sub>
 * 第i个任务的起始路径：o<sub>i</sub>
 * 第i个任务的终止路径：d<sub>i</sub>
-* 第i个任务的中间路径：$ \Sigma{_i}=\{\sideset{^i}{_1},\sideset{^i}{_2}...\sideset{^i}{_q}\} $
+* 第i个任务的中间路径：![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Eqn1.gif)
