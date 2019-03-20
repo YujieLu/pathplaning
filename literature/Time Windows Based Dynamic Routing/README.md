@@ -13,6 +13,8 @@
 	**w<sub>j</sub>**=[w<sub>ij</sub>]
 	**<sup>in</sup>t<sub>j</sub>**=[<sup>in</sup>t<sub>ij</sub>]
 	**<sup>out</sup>t<sub>j</sub>**=[<sup>out</sup>t<sub>ij</sub>]
+* 排序：<**x**>=[x<sub>i</sub>]
+
 
 ## 定义与假设
 
@@ -29,4 +31,16 @@
 * 优先级仅在有新任务下发和当前路径不可通行时更新
 * 当第i个任务完成后，没有新的任务分配给AGV r<sub>i</sub>,回到最近的停车库
 * **同一时刻，有且仅有一个AGV在有且只有一条路径上**
+> 此规则应该改成，同一时刻，一个路径最多有一个AGV占有
+* 使用Dijkstra 或者string algebra 或者Floyd-Warshal查找最短路径
+> 不能走重复路径
 
+* 其他
+> 进入任意路径，需要有和他干涉的路径的权限
+> 路径应截短至2米以下（2米这个是车身长度+激光区域+缓冲区域的大概数值）
+
+## 流程
+
+
+## TODO
+* 碰撞检测
