@@ -23,5 +23,5 @@
 * 优先级P<sub>i</sub>,值越小优先级越高
 	![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn2.png)
 * 当第i个任务完成后，没有新的任务分配给AGV r<sub>i</sub>,回到最近的停车库
-* ** 同一时刻，有且仅有一个AGV在有且只有一条路径上 **
+* **同一时刻，有且仅有一个AGV在有且只有一条路径上**
 
