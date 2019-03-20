@@ -51,39 +51,50 @@
 
 ## 流程
 ### 初始化时间窗
-> 当新接收到一个任务
+> 当新接收到一个任务时触发
 * 已经完成的<sup>in</sup>t<sub>ij</sub>，<sup>out</sup>t<sub>ij</sub>设置为无穷大(应该是便于排序)，w<sub>ij</sub>设置为0
 * 优先级低的任务按上述设置
 * 正在运行的w就按比例设置
 
 ### 时间窗插入
-* 检查是否能插入
+* 通过下列公式检查是否能插入：
+
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn3.png)
+
 或
+
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn4.png)
 
-* 插入
+* 通过下列公式插入：
+
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn5.png)
+
 或
+
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn6.png)
 
 ### 时间窗检查
 
-拉长 w<sub>m<sub>j</sub></sub>使得<sup>out</sup>t<sub>m<sub>j</sub></sub>=<sup>in</sup>t<sub>m<sub>i</sub></sub>
+* 拉长 w<sub>m<sub>j</sub></sub>使得<sup>out</sup>t<sub>m<sub>j</sub></sub>=<sup>in</sup>t<sub>m<sub>i</sub></sub>
 
-检查overlap，如果
+* 检查overlap，如果
+
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn7.png)
-如果不成立，则重新插入overlap的那条路径
-> 重新插入
 
-直道：
+如果不成立，则重新插入overlap的那条路径
+
+直到：
 a) 完成插入
 b) 第一条路径overlap
 
 如果是b则代表无法运行
 
-优先级低于m的任务规划方式相同
+* 优先级低于m的任务规划方式相同
 
+
+感觉两种方式都可以考虑：
+1. 不断刷新，如果不能完成就提高优先级
+2. 先到能走优先级越高，不更新优先级，走不通的任务不下发
 
 
 ## 需要考虑的问题
