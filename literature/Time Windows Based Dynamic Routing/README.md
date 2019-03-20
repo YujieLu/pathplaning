@@ -1,4 +1,4 @@
-# a shortest path problem with time window
+# Time Windows Based Dynamic Routing in Multi-AGV Systems
 
 ## 符号定义
 * 车辆：r<sub>i</sub>
@@ -21,12 +21,9 @@
 * 从节点A到节点B有一条路径，则节点A即为节点B的源节点（upstream），而B节点为A节点的尾节点(downstream)，同样，如果路径A，到路径B指直接路过节点，则路径A是路径B的源路径。
 
 
-
-
-
 ## 规则
 * G 矩阵： 如果路径i是路径j的源路径，则为g<sub>ij</sub>为1
-* 对于不需要路过a<sub>j</sub>的任务，对应的wj=0,<sup>in</sup>t<sub>j</sub>=<sup>out</sup>t<sub>j</sub>=无穷大，
+* 对于不需要路过a<sub>j</sub>的任务，对应的w<sub>j</sub>=0,<sup>in</sup>t<sub>j</sub>=<sup>out</sup>t<sub>j</sub>=无穷大，
 * 优先级P<sub>i</sub>,值越小优先级越高
 	![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn2.png)
 * 优先级仅在有新任务下发和当前路径不可通行时更新
