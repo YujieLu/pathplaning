@@ -14,6 +14,7 @@
 	**<sup>in</sup>t<sub>j</sub>**=[<sup>in</sup>t<sub>ij</sub>]
 	**<sup>out</sup>t<sub>j</sub>**=[<sup>out</sup>t<sub>ij</sub>]
 * 排序：<**x**>=[x<sub>i</sub>]
+* 安全时间：epsilon<sub>m<sub>j</sub></sub>
 
 ## 定义与假设
 
@@ -26,6 +27,8 @@
 * 对于不需要路过a<sub>j</sub>的任务，对应的w<sub>j</sub>=0,<sup>in</sup>t<sub>j</sub>=<sup>out</sup>t<sub>j</sub>=无穷大，
 * 优先级P<sub>i</sub>,值越小优先级越高
 	![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn2.png)
+> 无法完成的任务优先级提到
+
 * 优先级仅在有新任务下发和当前路径不可通行时更新
 * 当第i个任务完成后，没有新的任务分配给AGV r<sub>i</sub>,回到最近的停车库
 * **同一时刻，有且仅有一个AGV在有且只有一条路径上**
@@ -33,12 +36,18 @@
 * 使用Dijkstra 或者string algebra 或者Floyd-Warshal查找最短路径
 > 不能走重复路径
 
+* 每次release某一段路径，就重新优化一遍，因为之前不行的任务可能可以了。
+
 * 其他
 > 进入任意路径，需要有和他干涉的路径的权限
 
 > 停车库的权限也要预先申请
 
 > 路径应截短至2米以下（2米这个是车身长度+激光区域+缓冲区域的大概数值，直线上相连三个路径不应该相互限制）
+
+> 多个停车位，以增加可调度性
+
+> 停车位终点加一小段路径，作为终点路径，这个路径不会和主路干涉
 
 ## 流程
 ### 初始化时间窗
@@ -48,12 +57,39 @@
 * 正在运行的w就按比例设置
 
 ### 时间窗插入
+* 检查是否能插入
+![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn3.png)
+或
+![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn4.png)
+
+* 插入
+![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn5.png)
+或
+![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn6.png)
+
+### 时间窗检查
+
+拉长 w<sub>m<sub>j</sub></sub>使得<sup>out</sup>t<sub>m<sub>j</sub></sub>=<sup>in</sup>t<sub>m<sub>i</sub></sub>
+
+检查overlap，如果
+![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Equations/Eqn7.png)
+如果不成立，则重新插入overlap的那条路径
+> 重新插入
+
+直道：
+a) 完成插入
+b) 第一条路径overlap
+
+如果是b则代表无法运行
+
+优先级低于m的任务规划方式相同
 
 
 
 ## 需要考虑的问题
 * 我们系统不支持取消任务
-* 网络问题，不能整段下发路径的，要一批一批申请
+* 网络问题，不能整段下发路径的，要一批一批的申请
+
 
 ## TODO
 * 碰撞检测
