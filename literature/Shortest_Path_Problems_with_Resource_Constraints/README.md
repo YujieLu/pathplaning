@@ -13,7 +13,7 @@
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Figures/fig1.png)
 
 如图，
-路径上的两个值分别代表时间消耗和评分
+路径上的两个值分别代表时间和消耗（cost);
 节点上的两个值代表资源窗，（这里正好也就是时间窗）
 REF： f<sub>ij</sub>(T<sub>i</sub>)=T<sub>i</sub>+t<sub>ij</sub>
 那么，  
@@ -23,4 +23,4 @@ P<sub>3</sub>=(s,2,t) 最终的不可通行
 
 > P<sub>1</sub>和P<sub>2</sub>不可比较，因为一个时间快，一个消耗低
 
-* 2个资源的SPPRC 一班就叫做基于时间窗的最短路径问题（SPPTW）
+* 2个资源的SPPRC一般就叫做基于时间窗的最短路径问题（SPPTW）
