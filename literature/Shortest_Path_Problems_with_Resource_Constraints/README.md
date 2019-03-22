@@ -6,10 +6,10 @@
 
 * SPPRC 就是解决查找从一个起点到终点的，满足一系列基于资源的限制条件的最短路径。 
 * 资源是在一条路径基于某种函数（即rescource extention functions REFs)上变化的变量，可以是时间、负载。
-* REF提供了到达某个节点的最小自选消耗量。
+* REF提供了到达某个节点的资源消耗量的增加。
 * 资源限制条件（也就是资源窗），形式为区间，限制了到达某一节点的资源范围
 
-实例：
+实例：  
 ![image](https://github.com/YujieLu/pathplaning/blob/master/literature/Figures/fig1.png)
 
 如图，
